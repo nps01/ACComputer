@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+fb url: https://console.firebase.google.com/project/accomp-cdb08/authentication/users
+
+email_icon: https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-email-512.png
+
+github_icon: https://image.flaticon.com/icons/png/512/25/25231.png
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AC Computer</title>
+    <!------ Include the above in your HEAD tag ---------->
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="Home.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <!-- All the files that are required -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js" integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <!-- Homepage -->
+  <div id="Home-Page" class="hidden">
+    <div class="row main-row" id="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-accomp-theme">
+          <a class="navbar-brand" href="#">AC Computer</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a id="nav-home" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a id="nav-usefulLinks" class="nav-link" href="#">Useful Links</a>
+              </li>
+              <li class="nav-item">
+                <a id="nav-InterestingStuff" class="nav-link" href="#">Interesting Stuff</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Account
+                </a>
+                <div id="account-dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a id="signout" class="dropdown-item" href="#">Signout</a>
+                  <a id="delete" class="dropdown-item" href="#">Delete Account</a>
+                  <a class="dropdown-item" href="javascript: utter();">Scream really loud</a>
+                </div>
+                <script>
+                  function utter(){
+                    var voices = speechSynthesis.getVoices();
+                    var voice = voices[Math.floor(Math.random()*voices.length)];
+                    var utterThis = new SpeechSynthesisUtterance("I am screaming.");
+                    utterThis.voice = voice;
+                    speechSynthesis.speak(utterThis);
+                  }
+                </script>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+    <!-- Useful Links -->
+    <div class="row main-row " id="content-usefulLinks">
+      <h2>Useful Links</h2>
+      <ul>
+        <h4>Writing Code</h4>
+        <li><a href="">repl.it</a> (online)</li>
+        <li><a href="">jsfiddle</a> (online)</li>
+        <li><a href="">pycharm</a> (free desktop app)</li>
+        <li><a href="">VScode</a> (free desktop app)</li>
+        <li><a href="">Atom</a> (free desktop app)</li>
+
+        <h4>Books</h4>
+        <li><a href="https://runestone.academy/runestone/books/index">Runestone Interactive (Free interactive ebooks)</a> (online)</li>
+        <li><a href="">Automate the Boring Stuff</a> (Free Ebook)</li>
+        <li><a href="https://eloquentjavascript.net/">Eloquent Javascript</a> (Free Ebook)</li>
+        <li><a href="https://www.learnenough.com/command-line-tutorial/basics">Learn Enough Command Line to be Dangerous</a> (Free Ebook)</li>
+        <li><a href="http://www.tcpipguide.com/free/t_toc.htm">The TCP/ IP Guide</a> (Free Ebook)</li>
+        <li><a href="https://learnbyexample.github.io/py_regular_expressions/">Python re(gex)?</a> (Free Ebook)</li>
+        <li><a href="https://launchschool.com/books/http">Introduction to HTTP</a> (Free Ebook)</li>
+        <li><a href="https://introcs.cs.princeton.edu/java/cs/">Introduction to Computer Science - Java</a></li>
+
+        <h4>Advanced Books</h4>
+        <li><a href="http://greenteapress.com/complexity2/html/index.html">Think Complexity</a> (free Ebook)</li>
+        <li><a href="https://cses.fi/book/book.pdf">Competitive Programmer’s Handbook</a> (free Ebook)</li>
+        <li><a href="https://www.deeplearningbook.org/">Deep Learning</a> (free Ebook)</li>
+        <li><a href="https://www.inferentialthinking.com/chapters/intro.html">Computational and Inferential Thinking</a> (free Ebook)</li>
+        <li><a href="http://www.greenteapress.com/thinkos/html/index.html">Think OS: A Brief Introduction to Operating Systems</a> (free Ebook)</li>
+        <li><a href="http://catb.org/esr/writings/taoup/html/">The Art of Unix Programming</a> (free Ebook)</li>
+        <li><a href="https://computing.llnl.gov/tutorials/parallel_comp/">Introduction to Parallel Computing</a> (free Ebook)</li>
+        <li><a href="http://cglab.ca/~michiel/TheoryOfComputation/TheoryOfComputation.pdf">Introduction to Theory of Computation</a> (free Ebook)</li>
+        <li><a href="http://designingforperformance.com/">Designing for Performance</a> (free Ebook)</li>
+        <li><a href="https://www.plantation-productions.com/Webster/www.artofasm.com/Windows/HTML/AoATOC.html">The Art of Assembly language</a> (free Ebook)</li>
+        <li><a href="http://diveinto.html5doctor.com/">Dive into HTML</a> (free Ebook)</li>
+        <li><a href="https://tcorral.github.io/javascript-challenges-book/">JavaScript Challenges</a> (free Ebook)</li>
+        <li><a href="https://github.com/getify/You-Dont-Know-JS">You Don't Know JS</a> (free Ebook)</li>
+
+        <h4>Tutorials and Guides</h4>
+        <li><a href="http://rogerdudler.github.io/git-guide/"> git - the simple guide</a> (online guide)</li>
+        <li><a href="https://guide.bash.academy/">The Bash Guide</a> (online guide)</li>
+        <li><a href="https://learn.shayhowe.com/html-css/building-your-first-web-page/"> Learn to Code HTML & CSS</a> (online guide)</li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">JavaScript Guide</a> (online guide)</li>
+        <li><a href="http://www.cplusplus.com/doc/tutorial/">C++ Language Guide</a> (online guide)</li>
+        <li><a href="https://www.learncpp.com/">Learn Cpp</a> (online guide)</li>
+        <li><a href="https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html">Swift language Guide</a> (online guide)</li>
+        <li><a href="https://www.raywenderlich.com/ios/articles">IOS and Swift Articles</a> (online guide)</li>
+
+        <h4>Videos</h4>
+        <!-- Floating Point Numbers - Computerphile-->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/PZRI1IfStY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- Conways's Game of Life - Numberphile-->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/R9Plq-D1gEk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- How Does Transistor Work? - Veritasium-->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/IcrBqCFLHIY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- How Secure is 256 bit Security - 3Blue1Brown -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/S9JGmA5_unY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      </ul>
+    </div>
+
+    <!-- Home -->
+    <div class="row main-row content-home" id="content">
+      <div id="hic-l"class="home-inner-col">
+        <div id="hic-l-content">
+          <p class="home-p">Welcome <span id="home-studentName"></span>, to the AC Computer page.</p>
+          <p class="home-p" id="home-weeklyMessage"></p>
+          <p class="home-p" id="home-currentTasks"></p>
+          <p id="home-p-submit"class="home-p">
+            <a id="home-submissionLink" href="">Submit Assignments Here!</a>
+          </p>
+        </div>
+        <div class="row" id="hic-l-footer">
+          <table id="link-table">
+            <tbody>
+              <tr>
+                <td>Email</td>
+                <td class="contact-link-wrap">nps.assumption@gmail.com</td>
+                <!-- <td>nick.sebasco@gmail.com</td> -->
+              </tr>
+              <tr>
+                <td>Github</td>
+                <td class="contact-link-wrap"><a href="">Github.com/nps01</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="hic-r"class="home-inner-col">
+        <div class="topic-wrapper">
+          <h3> Topic of the Week: <span id="home-topicName">Cellular Automata</span></h3>
+        </div>
+        <div class="topic-wrapper">
+          <img id="home-topicImg" src="" alt="">
+        </div>
+        <div class="topic-wrapper">
+          <p id="home-topicDescription"></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Where all the magic happens -->
+  <!-- LOGIN FORM -->
+
+  <div id="login-form" class="main-form" style="padding:50px 0">
+  	<div class="logo">login</div>
+  	<!-- Main Form -->
+  	<div class="login-form-1 spec-login-form-1">
+  		<form id="login-form" class="text-left">
+  			<div class="login-form-main-message"></div>
+  			<div class="main-login-form">
+  				<div class="login-group">
+  					<div class="form-group">
+  						<label for="lg_username" class="sr-only">Username</label>
+  						<input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username">
+  					</div>
+  					<div class="form-group">
+  						<label for="lg_password" class="sr-only">Password</label>
+  						<input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password">
+  					</div>
+  					<div class="form-group login-group-checkbox">
+  						<input type="checkbox" id="lg_remember" name="lg_remember">
+  						<label for="lg_remember">remember</label>
+  					</div>
+  				</div>
+  				<button type="button" class="login-button" id="login-btn"><i class="fa fa-chevron-right"></i></button>
+  			</div>
+  			<div class="etc-login-form">
+  				<p>forgot your password? <a class="forgot-pass-a" href="#">click here</a></p>
+  				<p>new user? <a class="create-account-a" href="#">create new account</a></p>
+  			</div>
+  		</form>
+  	</div>
+  	<!-- end:Main Form -->
+  </div>
+
+  <!-- REGISTRATION FORM -->
+
+  <div id="registration-form" class="main-form text-center hidden">
+  	<div class="logo">register</div>
+  	<!-- Main Form -->
+  	<div class="login-form-1">
+  		<form id="register-form" class="text-left">
+  			<div class="login-form-main-message"></div>
+  			<div class="main-login-form">
+  				<div class="login-group">
+            <!--
+  					<div class="form-group">
+  						<label for="reg_username" class="sr-only">Email address</label>
+  						<input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
+  					</div>
+            -->
+  					<div class="form-group">
+  						<label for="reg_password" class="sr-only">Password</label>
+  						<input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">
+  					</div>
+  					<div class="form-group">
+  						<label for="reg_password_confirm" class="sr-only">Password Confirm</label>
+  						<input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
+  					</div>
+
+  					<div class="form-group">
+  						<label for="reg_email" class="sr-only">Email</label>
+  						<input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
+  					</div>
+  					<div class="form-group">
+  						<label for="reg_fullname" class="sr-only">Full Name</label>
+  						<input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
+  					</div>
+            <div class="form-group">
+              <label class="sr-only" for="reg_class">Class:</label>
+              <select name="" id="reg_class">
+                <option value="1">M1</option>
+                <option value="2">M2</option>
+                <option value="3">M3</option>
+                <option value="4">M4</option>
+                <option value="5">M5</option>
+                <option value="6">M6</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="reg_birthday">Birthday:</label>
+              <input class="form-control" type="date" id="reg_birthday" name="reg_birthday">
+            </div>
+  				</div>
+  				<button type="button" class="login-button" id="register-btn"><i class="fa fa-chevron-right"></i></button>
+  			</div>
+  			<div class="etc-login-form">
+  				<p>already have an account? <a class="login-a" href="#">login here</a></p>
+  			</div>
+  		</form>
+  	</div>
+  	<!-- end:Main Form -->
+  </div>
+
+
+  <!-- FORGOT PASSWORD FORM -->
+  <div id="forgot-password-form" class="main-form text-center hidden" style="padding:50px 0">
+  	<div class="logo">forgot password</div>
+  	<!-- Main Form -->
+  	<div class="login-form-1">
+  		<form id="forgot-password-form" class="text-left">
+  			<div class="etc-login-form">
+  				<p>When you fill in your registered email address, you will be sent instructions on how to reset your password.</p>
+  			</div>
+  			<div class="login-form-main-message"></div>
+  			<div class="main-login-form">
+  				<div class="login-group">
+  					<div class="form-group">
+  						<label for="fp_email" class="sr-only">Email address</label>
+  						<input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="email address">
+  					</div>
+  				</div>
+  				<button type="button" class="login-button" id="forgot-btn"><i class="fa fa-chevron-right"></i></button>
+  			</div>
+  			<div class="etc-login-form">
+  				<p>already have an account? <a class="login-a" href="#">login here</a></p>
+  				<p>new user? <a class="create-account-a" href="#">create new account</a></p>
+  			</div>
+  		</form>
+  	</div>
+  	<!-- end:Main Form -->
+  </div>
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDtrr-F3YfzDI2nRivjJcH12HahSHcf9ek",
+    authDomain: "accomp-cdb08.firebaseapp.com",
+    databaseURL: "https://accomp-cdb08.firebaseio.com",
+    projectId: "accomp-cdb08",
+    storageBucket: "accomp-cdb08.appspot.com",
+    messagingSenderId: "297148547124",
+    appId: "1:297148547124:web:22af9511147cf57b2a4a61",
+    measurementId: "G-H2B8ME6SJ2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  var database = firebase.database();
+</script>
+<script>
+
+  var classData = {
+    M1: {
+      submit: "https://docs.google.com/forms/d/e/1FAIpQLSdDMBHPkETEMZn0UaGjfmh-OpklthveTYtfxjKZNGwBGLbJBg/viewform",
+      currentTasks: [
+        {
+          name: "M1 Assignment_S2_03",
+          description: "This assignment will cover the internet & useful web apps.",
+          link: "https://docs.google.com/document/d/15YslwEJrZ-L_NNke8_AHWw2jqpzNn0pRNi0h6Qwb_xY/edit?usp=sharing",
+          img: "https://www.flaticon.com/svg/static/icons/svg/1754/1754306.svg",
+          due: "11/11/2020"
+        },
+        {
+          name: "Morality",
+          description: "This is a required extra credit assesment.",
+          link: "https://docs.google.com/forms/d/e/1FAIpQLScjSwDJhwt36PHLLRs4-SHSJpgfd9GLOfLGJlqHjE7WYGwnEQ/viewform",
+          img: "https://www.flaticon.com/svg/static/icons/svg/1754/1754306.svg",
+          due: "11/11/2020"
+        }
+      ],
+      classMessage: "This week you have 1 assignment.",
+      weeklyTopic: {
+        "name": "The Internet",
+        "img":"https://d2r55xnwy6nx47.cloudfront.net/uploads/2018/02/Networks_2880x1620.jpg",
+        "description": `
+        The Internet is one of the greatest most impactful inventions of mankind.
+        The first prototype emerged in 1960, maybe you can ask your parents or grandparents what it was like before the Internet!
+        There was no social media, no Google, no online gaming or shopping or videos, it was a completely different time.  This
+        week I want you to think about this: "What would life be like without the Internet?  How has the Internet effected society
+        in a positive and negative way?  What will the Internet look like in the future?"
+        `
+      }
+    },
+    M2: {
+      submit: "https://docs.google.com/forms/d/e/1FAIpQLScmQNUsUjE8dup93T-8GbZBNoYtjgzzYyNbz4B4ekf0VdeDCw/viewform",
+
+    },
+    M3: {
+      submit: "https://docs.google.com/forms/d/e/1FAIpQLSeT4tNiCZKYJbG6LqVl4__tJvTp06lNpYqhEuE2K2rVR_85gw/viewform",
+
+    },
+    M5: {
+      submit: "https://docs.google.com/forms/d/e/1FAIpQLSfcTrA2BcijF-6YxXqujTuSmisRl27FOrBzahXuNNwE00bXtw/viewform",
+      currentTasks: [
+        {
+          name: "M5 Assignment X01",
+          description: "This assignment will cover internet security and computer laws in Thailand.",
+          link: "https://docs.google.com/document/d/1Bzu5cIUDJ2hBYoA8kY98POetgnUa8FoXtpVJm8cG5A4/edit?usp=sharing",
+          img: "https://www.flaticon.com/svg/static/icons/svg/1754/1754306.svg",
+          due: "TODAY (11/03/2020)"
+        }
+      ],
+      classMessage: "This week you have 1 assignment.",
+      weeklyTopic: {
+        "name": "Powershell + Python",
+        "img":"https://asoftclick.com/wp-content/uploads/2019/05/Lock-screen-as-Wallpaper-1.png",
+        "description": `
+          PowerShell is a cross-platform task automation and configuration management framework,
+          consisting of a command-line shell and scripting language.  It is built ontop of the
+          <a href='https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet-framework'>.NET framework</a>.
+        `
+      }
+    }
+  };
+</script>
+<script>
+
+  (function($) {
+    "use strict";
+
+	var activeColor = "red";
+
+	(function startup (){
+		$( '.navbar-nav' ).find( 'li.active > a' ).css("color", activeColor);
+
+		$('#navbarDropdownMenuLink').data('open', false);
+
+		$('#navbarDropdownMenuLink').click(function() {
+			if($('#navbarDropdownMenuLink').data('open')) {
+				$('#navbarDropdownMenuLink').data('open', false);
+				//update_something();
+				// alert("A")
+			} else {
+				$('#navbarDropdownMenuLink').data('open', true);
+			}
+		});
+
+		$(document).click(function(e) {
+			if($('#navbarDropdownMenuLink').data('open')) {
+				$('#navbarDropdownMenuLink').data('open', false);
+				// alert(e.target.className)
+				$( '.navbar-nav' ).find( 'li.active > a' ).css("color","black");
+				$( '.navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
+
+				$( '.navbar-nav' ).find( 'li').first().addClass( 'active' );
+				$( '.navbar-nav' ).find( 'li > a').first().css("color", activeColor)
+			}
+		});
+	})();
+
+	$( '.navbar-nav a' ).on('click', function () {
+		$( '.navbar-nav' ).find( 'li.active > a' ).css("color","black");
+		$( '.navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
+
+		$( this ).parent( 'li' ).addClass( 'active' );
+		$( this ).css("color", activeColor);
+		alert();
+    });
+
+  $(".nav-link").click(function(){
+    switch($(this).attr("id")){
+      case "nav-home":
+      $("#content").css("display","inline-block");
+      $("#content-usefulLinks").css("display","none");
+      $("#content-interestingStuff").css("display","none");
+      break;
+      case "nav-usefulLinks":
+      $("#content").css("display","none");
+      $("#content-usefulLinks").css("display","inline-block");
+      $("#content-interestingStuff").css("display","none");
+      break;
+      case "nav-interestingStuff":
+      $("#content").css("display","none");
+      $("#content-usefulLinks").css("display","none");
+      $("#content-interestingStuff").css("display","inline-block");
+      break;
+    }
+  });
+
+  $(".forgot-pass-a").click(()=>{
+    $("#registration-form").css("display","none");
+    $("#forgot-password-form").css("display","inline-block");
+    <!-- $("#login-form").css("display","none"); -->
+  });
+  $(".create-account-a").click(()=>{
+    $("#registration-form").css("display","inline-block");
+    $("#forgot-password-form").css("display","none");
+    $("#login-form").css("display","none");
+  });
+  $(".login-a").click(()=>{
+    $("#registration-form").css("display","none");
+    $("#forgot-password-form").css("display","none");
+    $("#login-form").css("display","inline-block");
+  });
+	// Options for Message
+	//----------------------------------------------
+  var options = {
+	  'btn-loading': '<i class="fa fa-spinner fa-pulse"></i>',
+	  'btn-success': '<i class="fa fa-check"></i>',
+	  'btn-error': '<i class="fa fa-remove"></i>',
+	  'msg-success': 'All Good! Redirecting...',
+	  'msg-error': 'Wrong login credentials!',
+	  'useAJAX': true,
+  };
+
+	// Login Form
+	//----------------------------------------------
+	// Validation
+  $("#login-form").validate({
+  	rules: {
+      lg_username: "required",
+  	  lg_password: "required",
+    },
+  	errorClass: "form-invalid"
+  });
+
+	// Form Submission
+  $("#login-form").submit(function() {
+  	remove_loading($(this));
+
+		if(options['useAJAX'] == true)
+		{
+			// Dummy AJAX request (Replace this with your AJAX code)
+		  // If you don't want to use AJAX, remove this
+  	  dummy_submit_form($(this));
+
+		  // Cancel the normal submission.
+		  // If you don't want to use AJAX, remove this
+  	  return false;
+		}
+  });
+
+  var err = true;
+	// Register Form
+	//----------------------------------------------
+	// Validation
+  $("#register-form").validate({
+  	rules: {
+      // reg_username: "required",
+  	  reg_password: {
+  			required: true,
+  			minlength: 5
+  		},
+   		reg_password_confirm: {
+  			required: true,
+  			minlength: 5,
+  			equalTo: "#register-form [name=reg_password]"
+  		},
+  		reg_email: {
+  	    required: true,
+  			email: true
+  		},
+      reg_birthday: {
+  	    required: true
+  		},
+      reg_class: {
+        required: true
+      }
+    },
+	  errorClass: "form-invalid",
+    success: function(label){
+      err = null;
+    },
+	  errorPlacement: function( label, element ) {
+      err = true;
+	    if( element.attr( "type" ) === "checkbox" || element.attr( "type" ) === "radio" ) {
+    		element.parent().append( label ); // this would append the label after all your checkboxes/labels (so the error-label will be the last element in <div class="controls"> )
+	    }
+			else {
+  	  	label.insertAfter( element ); // standard behaviour
+  	  }
+    }
+  });
+
+  function buildTasks(L) {
+    var htmlStr = L.map((o)=>{
+      return `<tr>
+        <td class='task-name scell'><a id='home-taskLink' href='${o.link}'>${o.name}</a></td>
+        <td class='task-description scell'>${o.description}</td>
+        <td class='task-due scell'>${o.due}</td>
+        <td class='task-img scell'><img src='${o.img}'></td>
+      </tr>`
+    }).reduce((a,b)=>{
+      return a + b;
+    });
+    return `<table id="task-table"><tbody>${htmlStr}</tbody></table>`;
+  }
+
+  function renderHomePage(show = true) {
+    if (show) {
+      $("#login-form").hide();
+      $("#forgot-password-form").hide()
+      $("#registration-form").hide();
+      $("#Home-Page").show();
+
+      var userId = firebase.auth().currentUser.uid;
+      firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+        var _name = (snapshot.val() && snapshot.val().name) || 'Anonymous';
+        var _class = (snapshot.val() && snapshot.val().class) || 'Anonymous';
+
+        var data = classData[_class];
+        alert(_class);
+        console.log("data",data);
+        $("#home-studentName").text(_name);
+        $("#home-weeklyMessage").text(data.classMessage);
+        $("#home-submissionLink").attr("href",data.submit);
+        $("#home-currentTasks").html(buildTasks(data.currentTasks));
+        $("#home-topicDescription").html(data.weeklyTopic.description);
+        $("#home-topicName").text(data.weeklyTopic.name)
+        $("#home-topicImg").attr("src",data.weeklyTopic.img);
+
+      });
+
+    } else {
+      $("#login-form").show();
+      $("#Home-Page").hide();
+    }
+
+  }
+
+  function delUser(){
+    return knownLocationRef.once('value')
+    .then((data) => {
+      // if data is valid, return another promise
+      if (data.val() !== null) {
+
+        // Return a Promise from a promise
+        return knownLocationRef.remove();
+      }
+
+      return null; // no data to process
+    })
+    .catch(console.log);
+  }
+
+  function deleteUser(next=()=>{}) {
+    const uid = firebase.auth().currentUser.uid;
+    var user = firebase.auth().currentUser;
+
+    if (confirm("[WARNING] This will forever delete your account, do you wish to proceed?")){
+      firebase.database().ref('users/'+uid).remove();
+      user.delete().then(function() {
+        // User deleted.
+        alert("Account deleted!");
+        next();
+      }).catch(function(error) {
+        // An error happened.
+      });
+    }
+
+  }
+  $("#delete").click(()=>{
+    deleteUser(()=>{
+      renderHomePage(false);
+    });
+  });
+
+  function createUser(e,p,next= ()=>{},c = (e)=>{alert(e)}){
+    // const uid = firebase.database().ref('users').push().getKey();
+    firebase.auth().createUserWithEmailAndPassword(e.trim(), p)
+    .then(()=>{
+      const uid = firebase.auth().currentUser.uid;
+      firebase.database().ref('users/'+uid).set({
+        // username: $("#reg_username").val(),
+        password: $("#reg_password").val(),
+        name: $("#reg_fullname").val(),
+        birthday: $("#reg_birthday").val(),
+        email: $("#reg_email").val(),
+        class: "M"+$("#reg_class").val()
+      });
+      alert("success");
+      next();
+    })
+    .catch(function (err) {
+     // Handle errors
+     c(err);
+    });
+  }
+
+  function signin(e,p,next = ()=>{},c = (err)=>{alert(err)}) {
+    // Sign in existing user
+    firebase.auth().signInWithEmailAndPassword(e, p)
+      .then(()=>{
+        // Adds session persistence
+        //
+        if ($("#lg_remember").prop("checked")) {
+          firebase.auth().setPersistence( firebase.auth.Auth.Persistence.SESSION );
+        }
+      })
+      .then(next)
+      .catch(function(err) {
+       // Handle errors
+       c(err);
+      });
+  }
+
+  function signout(next=()=>{},c=()=>{}){
+    // Sign out user
+    firebase.auth().signOut()
+    .then(next)
+     .catch(function (err) {
+       // Handle errors
+       c();
+     });
+  }
+
+  $("#signout").click(()=>{
+    signout(()=>{
+      renderHomePage(false);
+    });
+  });
+  $(".login-button").click(function(){
+      switch($(this).attr("id")){
+        case "login-btn":
+        alert("login-pressed!");
+        signin($("#lg_username").val(), $("#lg_password").val(),renderHomePage);
+        break;
+        case "forgot-btn":
+          var auth = firebase.auth();
+          var emailAddress = $("#fp_email").val();
+          auth.sendPasswordResetEmail(emailAddress).then(function() {
+            // Email sent.
+            alert("Please check email to reset password.")
+          }).catch(function(error) {
+            // An error happened.
+            alert("An error occured.")
+          });
+        break;
+        case "register-btn":
+        if ($('#register-form').validate().checkForm()) {
+          createUser($("#reg_email").val(),$("#reg_password").val(),renderHomePage);
+        } else {
+          alert("There is an error you buffoon.")
+        }
+        break;
+      }
+  });
+
+	// Forgot Password Form
+	//----------------------------------------------
+	// Validation
+  $("#forgot-password-form").validate({
+  	rules: {
+      fp_email: "required",
+    },
+  	errorClass: "form-invalid"
+  });
+
+	// Form Submission
+  $("#forgot-password-form").submit(function() {
+  	remove_loading($(this));
+
+		if(options['useAJAX'] == true)
+		{
+			// Dummy AJAX request (Replace this with your AJAX code)
+		  // If you don't want to use AJAX, remove this
+  	  dummy_submit_form($(this));
+
+		  // Cancel the normal submission.
+		  // If you don't want to use AJAX, remove this
+  	  return false;
+		}
+  });
+
+	// Loading
+	//----------------------------------------------
+  function remove_loading($form)
+  {
+  	$form.find('[type=submit]').removeClass('error success');
+  	$form.find('.login-form-main-message').removeClass('show error success').html('');
+  }
+
+  function form_loading($form)
+  {
+    $form.find('[type=submit]').addClass('clicked').html(options['btn-loading']);
+  }
+
+  function form_success($form)
+  {
+	  $form.find('[type=submit]').addClass('success').html(options['btn-success']);
+	  $form.find('.login-form-main-message').addClass('show success').html(options['msg-success']);
+  }
+
+  function form_failed($form)
+  {
+  	$form.find('[type=submit]').addClass('error').html(options['btn-error']);
+  	$form.find('.login-form-main-message').addClass('show error').html(options['msg-error']);
+  }
+
+	// Dummy Submit Form (Remove this)
+	//----------------------------------------------
+	// This is just a dummy form submission. You should use your AJAX function or remove this function if you are not using AJAX.
+  function dummy_submit_form($form)
+  {
+  	if($form.valid())
+  	{
+  		form_loading($form);
+
+  		setTimeout(function() {
+  			form_success($form);
+  		}, 2000);
+  	}
+  }
+
+})(jQuery);
+</script>
+</html>
